@@ -1,16 +1,16 @@
 import pickle
 
-# load model
 model = pickle.load(open("model.pkl", "rb"))
 
-# user input
 temp = int(input("Enter temperature: "))
 volt = int(input("Enter voltage: "))
 hours = int(input("Enter usage hours: "))
+vibration = int(input("Enter vibration level: "))
+humidity = int(input("Enter humidity: "))
 
-prediction = model.predict([[temp, volt, hours]])
+prediction = model.predict([[temp, volt, hours, vibration, humidity]])
 
 if prediction[0] == 1:
-    print("Maintenance Required")
+    print("⚠️ Maintenance Required")
 else:
-    print("No Maintenance Needed")
+    print("✅ No Maintenance Needed")

@@ -1,29 +1,24 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 import pickle
 
-# load data
 data = pd.read_csv("data.csv")
 
-X = data[['temperature', 'voltage', 'usage_hours']]
+X = data[['temperature', 'voltage', 'usage_hours', 'vibration', 'humidity']]
 y = data['maintenance']
 
-# split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2
-)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# model
-model = RandomForestClassifier()
+model = RandomForestClassifier(n_estimators=100, max_depth=5)
 model.fit(X_train, y_train)
 
-# accuracy
 y_pred = model.predict(X_test)
-print("Accuracy:", accuracy_score(y_test, y_pred))
 
-# save model
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+
 pickle.dump(model, open("model.pkl", "wb"))
 
 print("Model trained and saved!")
