@@ -51,7 +51,8 @@ predictive-maintenance/
 ├── data.csv             → Generated dataset
 ├── model.pkl            → Trained model
 └── README.md
-<img width="225" height="212" alt="image" src="https://github.com/user-attachments/assets/eac4548c-8514-4e22-8087-6b5313b5491f" />
+<img width="247" height="154" alt="image" src="https://github.com/user-attachments/assets/271a0aef-f804-4c92-a2b4-fe487a4f90a3" />
+
 
 
 ---
