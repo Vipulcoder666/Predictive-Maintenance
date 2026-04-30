@@ -8,4 +8,4 @@
 
 # for i in data["energy"]:
 #     if i > avg * 1.5:
-#         print("⚠️ Alert: High energy usage detected")
+#         print("Alert: High energy usage detected")
